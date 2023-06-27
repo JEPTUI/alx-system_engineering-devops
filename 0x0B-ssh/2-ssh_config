@@ -2,6 +2,6 @@
 # configure SSH configuration file for the local SSH client to
 # connect without typing a password
 
-Host 54.87.239.251
+Host 100.25.182.185
 	PasswordAuthentication no
 	IdentityFile ~/.ssh/school
