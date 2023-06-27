@@ -6,5 +6,20 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
 echo "Hello World!" | sudo tee /var/www/html/redirect_me.html
-sudo sed -i "30i $ADD301_REDIRECT" /etc/nginx/sites-available/default
+sudo bash -c 'cat > /etc/nginx/sites-available/default << EOF
+server {
+    listen 80;
+    server_name default_server;
+
+    location /redirect_me {
+        try_files \$uri \$uri/ =404;
+    }
+
+    location / {
+        root /var/www/html;
+        index index.html;
+    }
+}
+EOF'
+# sudo sed -i "30i $ADD301_REDIRECT" /etc/nginx/sites-available/default
 sudo service nginx start
