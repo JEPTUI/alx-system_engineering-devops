@@ -1,0 +1,34 @@
+global
+    log /dev/log local0
+    log /dev/log local1 notice
+    user haproxy
+    group haproxy
+    daemon
+
+defaults
+    log global
+    mode http
+    option httplog
+    option dontlognull
+    timeout connect 5000
+    timeout client 50000
+    timeout server 50000
+
+frontend http_front
+    bind *:80
+    default_backend http_back
+
+frontend www-https
+    bind *:443 ssl crt /etc/letsencrypt/csr/0000_csr-certbot.pem
+    reqadd X-Forwarded-Proto:\ https
+    acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+    use_backend letsencrypt-backend if letsencrypt-acl
+    default_backend web-backend
+
+backend http_back
+    balance roundrobin
+    server web-01 198624-web-01:80 check
+    server web-02 198624-web-02:80 check
+
+backend letsencrypt-backend
+    server letsencrypt 127.0.0.1:54321
