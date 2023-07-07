@@ -28,8 +28,8 @@ frontend www-https
 
 backend http_back
     balance roundrobin
-    server web-01 198624-web-01:80 check
-    server web-02 198624-web-02:80 check
+    server 198624-web-01 100.25.182.185:80 check
+    server 198624-web-02 54.237.33.235:80 check
 
 backend letsencrypt-backend
     server letsencrypt 127.0.0.1:54321
