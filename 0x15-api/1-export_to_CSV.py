@@ -28,8 +28,8 @@ def export_to_csv():
     # export data to CSV
     filename = "{}.csv".format(sys.argv[1])
     with open(filename, "w") as csvfile:
-        fieldnames =  ["USER_ID", "USERNAME",
-                      "TASK_COMPLETED_STATUS", "TASK_TITLE"]
+        fieldnames = [
+                "USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
         writer = csv.DictWriter(
                 csvfile, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
         for task in TASK_STATUS_TITLE:
