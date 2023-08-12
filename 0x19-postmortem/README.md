@@ -1,6 +1,8 @@
 ## ATM and Card Servicing Outage Incident Report
 The following is the incident report for the ATM and card servicing outage that occurred between May 15 and May 16, 2023.
 
+![postmortem image](https://www.splunk.com/content/dam/splunk-blogs/images/en_us/2022/07/incident-repsonse1.png)
+
 ### Issue Summary
 
 From 9:13 PM to 7:00 AM(East African Time, UTC+3), ATM and card transactions resulted in 503 error messages. This outage affected multiple ATMs and card services provided to Diamond Trust Bank due to configuration errors in networking components provided by our third party service.
