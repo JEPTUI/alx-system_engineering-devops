@@ -1,4 +1,4 @@
-# ATM and Card Servicing Outage Incident Report at Neramo
+# ATM and Card Servicing Outage Incident Report
 The following is the incident report for the ATM and card servicing outage that occurred between May 15 and May 16, 2023.
 
 ## Issue Summary
