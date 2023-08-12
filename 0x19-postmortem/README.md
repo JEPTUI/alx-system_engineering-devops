@@ -1,15 +1,11 @@
-# ATM and Card Servicing Outage Incident Report
+## ATM and Card Servicing Outage Incident Report
 The following is the incident report for the ATM and card servicing outage that occurred between May 15 and May 16, 2023.
 
-## Issue Summary
+### Issue Summary
 
 From 9:13 PM to 7:00 AM(East African Time, UTC+3), ATM and card transactions resulted in 503 error messages. This outage affected multiple ATMs and card services provided to Diamond Trust Bank due to configuration errors in networking components provided by our third party service.
 
-## Root Cause
-
-Configuration errors in the network switch settings caused traffic redirection and thus an overload on the load balancer, leading to an outage.
-
-## Timeline(All East African Time)
+### Timeline(All East African Time)
 * **9:00**: Configuration push begins.
 * **9:13**: Outage begins.
 * **9:20**: Pagers alerted the Contact Center Team.
@@ -28,17 +24,17 @@ Configuration errors in the network switch settings caused traffic redirection a
 * **6:30**: Server restarts begin
 * **7:00**: Services restored.
 
-## Root Cause
+### Root Cause
 
 The root cause of the outage was identified as configuration errors in the network switch managed by our third-party service. The network switch's routing table was configured incorrectly, leading to improper redirection of traffic. This caused an overload on the load balancer, disrupting ATM and card services.
 
-## Resolution and Recovery
+### Resolution and Recovery
 
 At 9:13 PM, the monitoring systems alerted the contact center of the outage who quickly escalated the issue to the responsible teams. Reaching the engineers was quite a tussle but at 12:00 midnight they were finally able to reach them.
 
 At 12:30 the initial assessment suggested network issues after an attempt to rollback configuration change. The Engineers corrected the misconfigured settings in the network switch's routing table. Load balancer configurations were also adjusted to ensure proper traffic distribution and at 6:00 AM a successful rollback was achieved which upon completion of these corrective actions, ATM and card services were fully restored.
 
-## Corrective and Preventative Measures
+### Corrective and Preventative Measures
 
 For about a week now, we have been doing internal review and analysis of the outage. The following are the steps we are taking to ensure that the same issue doesn't reoccur.
 
