@@ -1,0 +1,15 @@
+[Unit]
+Description=Gunicorn instance to serve AirBnB Clone v4
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/path/to/home/AirBnB_clone_v4/web_dynamic
+ExecStart=/path/to/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:5003 2-hbnb:app
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=mixed
+TimeoutSec=30
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
